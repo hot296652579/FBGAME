@@ -17,6 +17,9 @@ export class UIBattleScene extends UIScreen{
     @property(cc.Node)
     private btnBackHall:cc.Node = null;
 
+    @property({type:[Node]})
+    private cardsNode:Node[] = null;
+
     start(){}
 
     onLoad(): void {}
