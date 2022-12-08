@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "ae500bf3-0206-46e7-b034-823b6afe33f7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1030,
+  "height": 435,
+  "platformSettings": {},
+  "subMetas": {
+    "Heroes_DeckArt_Archeress": {
+      "ver": "1.0.6",
+      "uuid": "77dc9606-2ddd-4d38-8aef-95a1634e9c59",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "ae500bf3-0206-46e7-b034-823b6afe33f7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": 6.5,
+      "trimX": 1,
+      "trimY": 15,
+      "width": 1029,
+      "height": 392,
+      "rawWidth": 1030,
+      "rawHeight": 435,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 45.5,
+      "borderRight": 65.5,
+      "subMetas": {}
+    }
+  }
+}

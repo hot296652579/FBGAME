@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "4224bbd9-b21a-4388-895c-8c96c77bfbe0",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 193,
+  "height": 271,
+  "platformSettings": {},
+  "subMetas": {
+    "priestessHandLeft": {
+      "ver": "1.0.6",
+      "uuid": "ecb10a03-ee6c-4fa8-a335-a179dae3861e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "4224bbd9-b21a-4388-895c-8c96c77bfbe0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 7,
+      "trimY": 9,
+      "width": 179,
+      "height": 253,
+      "rawWidth": 193,
+      "rawHeight": 271,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

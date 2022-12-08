@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "36e01403-e906-4ab5-b9d2-027286ca2db7",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1030,
+  "height": 435,
+  "platformSettings": {},
+  "subMetas": {
+    "Heroes_DeckArt_Trainer": {
+      "ver": "1.0.6",
+      "uuid": "684ae667-9cc5-462b-93ad-ded15bff1181",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "36e01403-e906-4ab5-b9d2-027286ca2db7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -27.5,
+      "trimX": 1,
+      "trimY": 64,
+      "width": 1029,
+      "height": 362,
+      "rawWidth": 1030,
+      "rawHeight": 435,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

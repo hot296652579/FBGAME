@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "e01872e2-3d71-42c1-8c24-9035db376f67",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 582,
+  "height": 489,
+  "platformSettings": {},
+  "subMetas": {
+    "Heroes_WindowArt_Zeus": {
+      "ver": "1.0.6",
+      "uuid": "1bcac8ac-9deb-411f-ba26-9b8b1f8c6dfe",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "e01872e2-3d71-42c1-8c24-9035db376f67",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 34,
+      "offsetY": -17,
+      "trimX": 68,
+      "trimY": 34,
+      "width": 514,
+      "height": 455,
+      "rawWidth": 582,
+      "rawHeight": 489,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

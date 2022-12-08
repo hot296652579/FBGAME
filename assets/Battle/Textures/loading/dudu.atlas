@@ -1,0 +1,20 @@
+
+dudu.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ddc01
+  rotate: false
+  xy: 0, 24
+  size: 73, 63
+  orig: 73, 63
+  offset: 0, 0
+  index: -1
+ddc03
+  rotate: false
+  xy: 0, 0
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1

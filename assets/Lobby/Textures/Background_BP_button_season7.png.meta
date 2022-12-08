@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "00e36ec1-a574-45d8-98f0-f17b1e8f3773",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 810,
+  "height": 210,
+  "platformSettings": {},
+  "subMetas": {
+    "Background_BP_button_season7": {
+      "ver": "1.0.6",
+      "uuid": "f9e0c5ea-6866-4793-b283-88182be172cc",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "00e36ec1-a574-45d8-98f0-f17b1e8f3773",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 3,
+      "trimY": 0,
+      "width": 803,
+      "height": 210,
+      "rawWidth": 810,
+      "rawHeight": 210,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

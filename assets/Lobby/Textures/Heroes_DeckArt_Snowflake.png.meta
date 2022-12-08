@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "8d76c44b-f697-4708-89c0-4752f09e02a5",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1030,
+  "height": 435,
+  "platformSettings": {},
+  "subMetas": {
+    "Heroes_DeckArt_Snowflake": {
+      "ver": "1.0.6",
+      "uuid": "16f4a222-ebfc-4b5a-bb26-97a46f50b43c",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "8d76c44b-f697-4708-89c0-4752f09e02a5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -21,
+      "trimX": 1,
+      "trimY": 50,
+      "width": 1029,
+      "height": 377,
+      "rawWidth": 1030,
+      "rawHeight": 435,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

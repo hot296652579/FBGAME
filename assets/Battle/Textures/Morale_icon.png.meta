@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "06f9a073-6fef-4196-bfd5-e771bb9a1d40",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 363,
+  "height": 250,
+  "platformSettings": {},
+  "subMetas": {
+    "Morale_icon": {
+      "ver": "1.0.6",
+      "uuid": "33e43131-1103-4541-9f67-296a2ec5c85e",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "06f9a073-6fef-4196-bfd5-e771bb9a1d40",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 363,
+      "height": 250,
+      "rawWidth": 363,
+      "rawHeight": 250,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

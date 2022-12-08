@@ -1,0 +1,342 @@
+
+logo.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Energy 035 Ray Up/Energy 035 Ray Up_00000
+  rotate: false
+  xy: 595, 884
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00001
+  rotate: false
+  xy: 223, 754
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00002
+  rotate: false
+  xy: 324, 754
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00003
+  rotate: false
+  xy: 425, 754
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00004
+  rotate: false
+  xy: 180, 653
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00005
+  rotate: false
+  xy: 281, 653
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00006
+  rotate: false
+  xy: 382, 653
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00007
+  rotate: false
+  xy: 180, 552
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00008
+  rotate: false
+  xy: 281, 552
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00009
+  rotate: false
+  xy: 382, 552
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00010
+  rotate: false
+  xy: 178, 451
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00011
+  rotate: false
+  xy: 279, 451
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00012
+  rotate: false
+  xy: 380, 451
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00013
+  rotate: false
+  xy: 253, 350
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00014
+  rotate: false
+  xy: 354, 350
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00015
+  rotate: false
+  xy: 253, 249
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00016
+  rotate: false
+  xy: 354, 249
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00017
+  rotate: false
+  xy: 696, 884
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00018
+  rotate: false
+  xy: 797, 919
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00019
+  rotate: false
+  xy: 898, 919
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00020
+  rotate: false
+  xy: 483, 653
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+Energy 035 Ray Up/Energy 035 Ray Up_00021
+  rotate: false
+  xy: 483, 552
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+logo_0
+  rotate: false
+  xy: 223, 855
+  size: 262, 71
+  orig: 262, 71
+  offset: 0, 0
+  index: -1
+logo_1
+  rotate: false
+  xy: 223, 927
+  size: 265, 92
+  orig: 265, 92
+  offset: 0, 0
+  index: -1
+logo_10
+  rotate: false
+  xy: 107, 174
+  size: 134, 109
+  orig: 134, 109
+  offset: 0, 0
+  index: -1
+logo_11
+  rotate: false
+  xy: 1, 800
+  size: 221, 219
+  orig: 221, 219
+  offset: 0, 0
+  index: -1
+logo_12
+  rotate: false
+  xy: 1, 1
+  size: 142, 137
+  orig: 142, 137
+  offset: 0, 0
+  index: -1
+logo_13
+  rotate: true
+  xy: 1, 139
+  size: 207, 105
+  orig: 207, 105
+  offset: 0, 0
+  index: -1
+logo_15
+  rotate: true
+  xy: 1, 347
+  size: 242, 105
+  orig: 242, 105
+  offset: 0, 0
+  index: -1
+logo_16
+  rotate: true
+  xy: 107, 435
+  size: 154, 70
+  orig: 154, 70
+  offset: 0, 0
+  index: -1
+logo_2
+  rotate: false
+  xy: 489, 985
+  size: 261, 34
+  orig: 261, 34
+  offset: 0, 0
+  index: -1
+logo_3
+  rotate: true
+  xy: 489, 888
+  size: 96, 105
+  orig: 96, 105
+  offset: 0, 0
+  index: -1
+logo_4
+  rotate: true
+  xy: 144, 39
+  size: 134, 108
+  orig: 134, 108
+  offset: 0, 0
+  index: -1
+logo_5
+  rotate: false
+  xy: 455, 84
+  size: 72, 63
+  orig: 72, 63
+  offset: 0, 0
+  index: -1
+logo_6
+  rotate: true
+  xy: 455, 27
+  size: 56, 61
+  orig: 56, 61
+  offset: 0, 0
+  index: -1
+logo_7
+  rotate: false
+  xy: 1, 590
+  size: 178, 209
+  orig: 178, 209
+  offset: 0, 0
+  index: -1
+logo_8
+  rotate: false
+  xy: 180, 754
+  size: 22, 45
+  orig: 22, 45
+  offset: 0, 0
+  index: -1
+logo_9
+  rotate: false
+  xy: 107, 284
+  size: 145, 150
+  orig: 145, 150
+  offset: 0, 0
+  index: -1
+mango/mango_00000
+  rotate: false
+  xy: 481, 451
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00001
+  rotate: false
+  xy: 455, 350
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00002
+  rotate: false
+  xy: 455, 249
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00003
+  rotate: false
+  xy: 797, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00004
+  rotate: false
+  xy: 898, 818
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00005
+  rotate: false
+  xy: 253, 148
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00006
+  rotate: false
+  xy: 253, 47
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00007
+  rotate: false
+  xy: 354, 148
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00008
+  rotate: false
+  xy: 354, 47
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+mango/mango_00009
+  rotate: false
+  xy: 455, 148
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1

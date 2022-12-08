@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "85222ddd-d88d-4c2b-acdc-388a69ba8878",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 582,
+  "height": 489,
+  "platformSettings": {},
+  "subMetas": {
+    "Heroes_WindowArt_Archeress": {
+      "ver": "1.0.6",
+      "uuid": "297a55e7-e66e-47f0-aad6-0aa67225a07b",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "85222ddd-d88d-4c2b-acdc-388a69ba8878",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -2,
+      "offsetY": -24,
+      "trimX": 0,
+      "trimY": 48,
+      "width": 578,
+      "height": 441,
+      "rawWidth": 582,
+      "rawHeight": 489,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

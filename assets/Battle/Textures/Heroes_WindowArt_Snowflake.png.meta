@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "fb1184d1-88ca-40fa-85f2-34718910dc2d",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 582,
+  "height": 489,
+  "platformSettings": {},
+  "subMetas": {
+    "Heroes_WindowArt_Snowflake": {
+      "ver": "1.0.6",
+      "uuid": "05c72170-571e-4b44-8a8b-76d7dfe65545",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "fb1184d1-88ca-40fa-85f2-34718910dc2d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": -24,
+      "trimX": 2,
+      "trimY": 48,
+      "width": 580,
+      "height": 441,
+      "rawWidth": 582,
+      "rawHeight": 489,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
