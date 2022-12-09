@@ -2,7 +2,7 @@
  * @Author: super_javan 296652579@qq.com
  * @Date: 2022-12-09 15:52:59
  * @LastEditors: super_javan 296652579@qq.com
- * @LastEditTime: 2022-12-09 16:19:52
+ * @LastEditTime: 2022-12-09 17:40:43
  * @FilePath: \FBGAME\assets\Battle\Script\games\HumanPlayer.ts
  * @Description: 玩家类
  */
@@ -30,6 +30,6 @@ export default class HumanPlayer extends Player{
 
     protected onStartGame(startGameDTO: StartGameDTO) {
         // throw new Error("Method not implemented.");
-        FireKit.use(Config.AI_FIRE).emit(FBGameEvent.START_GAME,<StartGameVO>startGameDTO);
+        FireKit.use(Config.HUMAN_FIRE).emit(FBGameEvent.START_GAME,<StartGameVO>startGameDTO);
     }
 }

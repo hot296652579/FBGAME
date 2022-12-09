@@ -2,7 +2,7 @@
  * @Description: 战斗场景UI脚本
  * @Author: Super_Javan
  * @Date: 2022-11-29 17:52:12
- * @LastEditTime: 2022-12-09 17:22:21
+ * @LastEditTime: 2022-12-09 17:44:33
  * @LastEditors: super_javan 296652579@qq.com
  */
 import { EventMgr } from "../../../ScriptCore/BaseManager/EventMgr";
@@ -43,7 +43,7 @@ export class UIBattleScene extends UIScreen{
         this.init();
         this.eventRegister();
 
-        // this._engine.enter(PlayerManager.ins().creatorPlayer(new HumanPlayer(this._meId,'鸡哥')));
+        this._engine.enter(PlayerManager.ins().creatorPlayer(new HumanPlayer(this._meId,'鸡哥')));
     }
 
     init(){
@@ -52,11 +52,11 @@ export class UIBattleScene extends UIScreen{
 
     eventRegister(){
         FireKit.use(Config.HUMAN_FIRE).onGroup(FBGameEvent.SIT_DOWN,this.sitDownLogic,this);
-        FireKit.use(Config.HUMAN_FIRE).onGroup(FBGameEvent.SIT_DOWN,this.startGameLogic,this);
+        // FireKit.use(Config.HUMAN_FIRE).onGroup(FBGameEvent.START_GAME,this.startGameLogic,this);
     }
 
     sitDownLogic(){
-
+        console.log(this._meId);
     }
 
     startGameLogic(){
