@@ -2,7 +2,7 @@
  * @Author: super_javan 296652579@qq.com
  * @Date: 2022-12-05 17:05:39
  * @LastEditors: super_javan 296652579@qq.com
- * @LastEditTime: 2022-12-05 17:35:59
+ * @LastEditTime: 2022-12-09 18:48:49
  * @FilePath: \FBGame\assets\Battle\Script\games\eventfire\EventOnFire.ts
  * @Description: 游戏事件订阅器
  */
@@ -53,9 +53,9 @@ export default class EventOnFire{
         let l = listeners.length;
 
         for (let i = 0; i < l; i++) {
-            const {cb, once} = listeners[i];
+            const {cb, once,group} = listeners[i];
 
-            cb.apply(this, params);
+            cb.apply(group, params);
 
             if (once) {
                 listeners.splice(i, 1);
