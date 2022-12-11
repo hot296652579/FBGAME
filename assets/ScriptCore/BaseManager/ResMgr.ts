@@ -439,6 +439,17 @@ export class ResMgr{
         }
     }
 
+    //#region spriteFrame的处理 加载 获取 销毁
+    public getSpriteFrameByPath(path: string): cc.SpriteFrame | null {
+        let data = this.splitFormName(path);
+        let bundleName = data.bundle;
+        if (this.loadSpriteFrameWithBundleKey.has(bundleName) && this.loadSpriteFrameWithBundleKey.get(bundleName)!.has(path)) {
+            this.loadSpriteFrameWithBundleKey.get(bundleName)!.get(path)!.addRef();
+            return this.loadSpriteFrameWithBundleKey.get(bundleName)!.get(path)!;
+        }
+        return null;
+    }
+
     //销毁一个form对应的一个资源
     public destoryForm(formName: string) {
         if (formName == null || formName == undefined || formName.length <= 0) {

@@ -12,5 +12,6 @@ export let reslist:Map<string,number> = new Map<string,number>([
     ["Battle/Textures/background",1],
     ["Battle/Textures/BackgroundPVPPortrait",1],
     ["Battle/Textures/Heroes_WindowArt_Archeress",1],
+    ["Battle/Prefabs/SpinePrefab",4],
     ]);
     

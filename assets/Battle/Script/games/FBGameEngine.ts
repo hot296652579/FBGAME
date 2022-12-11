@@ -1,4 +1,6 @@
 import Config from "./config/Config";
+import ConfirmColorDTO from "./dto/ConfirmColorDTO";
+import OpenCardDTO from "./dto/OpenCardDTO";
 import SitDownDTO from "./dto/SitDownDTO";
 import StartGameDTO from "./dto/StartGameDTO";
 import FireKit from "./eventfire/FireKit";
@@ -55,7 +57,7 @@ export default class FBGameEngine{
    static INVALID_INDEX: number = 0xFF;
 
    private players:{[key:number]:Player} = {};
-   private chirColors:{[key:number]:number} = {};
+   private chairColors:{[key:number]:number} = {};
 
    /**
     * 游戏动物棋牌
@@ -139,6 +141,7 @@ export default class FBGameEngine{
    startGame(){
       this.cards = this.shuffle();//随机洗牌
       this.currChair = Math.floor(Math.random() * FBGameEngine.MAX_CHAIR - 1);//随机生成第一个椅子
+      this.currChair = 0;//暂定是自己
       this.sendStartGame();
    }
    private shuffle():number[]{
@@ -156,4 +159,47 @@ export default class FBGameEngine{
          this.players[key].startGame(new StartGameDTO(this.currChair, this.currCards));
       }
     }
+
+    /**开牌操作*/
+    open(openCardDTO:OpenCardDTO){
+      let index = openCardDTO.index;
+      let chair = openCardDTO.chair;
+
+      if(this.currCards[index] == FBGameEngine.DARK_CARD){
+         let card = this.cards[index];
+
+         let arr = Object.keys(this.chairColors);
+         if(arr.length == 0){
+            for (let index = 0; index < FBGameEngine.MAX_CHAIR; index++) {
+               if(index == chair){
+                  this.chairColors[chair] = (card >> 4);
+                  this.sendConfirmColor(chair,card >> 4);
+               }else{
+                  this.chairColors[index] = FBGameEngine.RED ? FBGameEngine.BLUE : FBGameEngine.RED;
+                  this.sendConfirmColor(index, (card >> 4) == FBGameEngine.RED ? FBGameEngine.BLUE : FBGameEngine.RED); 
+               }
+            }
+         }
+         this.currCards[index] = card;
+         this.sendOpenResult(chair, index, card);
+      }
+    }
+
+    private sendConfirmColor(chair:number,color:number){
+      for (let key in this.players) {
+         this.players[key].confirmColor(new ConfirmColorDTO(chair, color));
+      }
+    }
+
+   /**
+    * 发送显示牌
+    * @param chair
+    * @param index
+    * @param card
+    */
+   private sendOpenResult(chair: number, index: number, card: number) {
+      for (let key in this.players) {
+            this.players[key].openResult(new OpenCardDTO(chair, index, card));
+      }
+   }
 }

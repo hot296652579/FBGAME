@@ -16,6 +16,14 @@ export default class Config {
      * 人类相关的事件驱动
      */
     static HUMAN_FIRE: string = "__HUMAN__FIRE__";
+}
 
-
+export class SpineConfig{
+     static spinesConfig = {
+        ['contra'] : {
+            path:'',
+            scale:1,
+            guns:['gun0','gun1','gun2']
+        }
+    }
 }

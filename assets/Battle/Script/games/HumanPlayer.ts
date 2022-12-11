@@ -8,12 +8,16 @@
  */
 import { FBGameEventName } from "../configs/FBGameEventName";
 import Config from "./config/Config";
+import ConfirmColorDTO from "./dto/ConfirmColorDTO";
+import OpenCardDTO from "./dto/OpenCardDTO";
 import SitDownDTO from "./dto/SitDownDTO";
 import StartGameDTO from "./dto/StartGameDTO";
 import EventOnFire from "./eventfire/EventOnFire";
 import FireKit from "./eventfire/FireKit";
 import FBGameEvent from "./events/FBGameEvent";
 import Player from "./Player";
+import ConfirmColorVO from "./vo/ConfirmColorVO";
+import OpenCardVO from "./vo/OpenCardVO";
 import SitDownVO from "./vo/SitDownVO";
 import StartGameVO from "./vo/StartGameVO";
 
@@ -31,5 +35,13 @@ export default class HumanPlayer extends Player{
     protected onStartGame(startGameDTO: StartGameDTO) {
         // throw new Error("Method not implemented.");
         FireKit.use(Config.HUMAN_FIRE).emit(FBGameEvent.START_GAME,<StartGameVO>startGameDTO);
+    }
+
+    protected onConfirmColor(confirmColorDTO: ConfirmColorDTO) {
+        FireKit.use(Config.HUMAN_FIRE).emit(FBGameEvent.CONFIRM_COLOR,<ConfirmColorVO>confirmColorDTO);
+    }
+
+    protected onOpenResult(confirmColorDTO: OpenCardDTO) {
+        FireKit.use(Config.HUMAN_FIRE).emit(FBGameEvent.OPEN_RESULT,<OpenCardVO>confirmColorDTO);
     }
 }
