@@ -10,7 +10,7 @@ import Player from "./Player";
  * @Author: super_javan 296652579@qq.com
  * @Date: 2022-12-09 11:37:14
  * @LastEditors: super_javan 296652579@qq.com
- * @LastEditTime: 2022-12-09 18:43:57
+ * @LastEditTime: 2022-12-12 17:09:25
  * @FilePath: \FBGAME\assets\Battle\Script\games\FBGameEngine.ts
  * @Description: FBGame游戏引擎
  */
@@ -109,8 +109,6 @@ export default class FBGameEngine{
             this.startGame();
          }
       }
-
-
    }
 
    /**
@@ -140,6 +138,7 @@ export default class FBGameEngine{
    /**开始游戏*/
    startGame(){
       this.cards = this.shuffle();//随机洗牌
+      console.log('洗牌后的cards : ' + this.cards);
       this.currChair = Math.floor(Math.random() * FBGameEngine.MAX_CHAIR - 1);//随机生成第一个椅子
       this.currChair = 0;//暂定是自己
       this.sendStartGame();

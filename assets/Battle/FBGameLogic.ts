@@ -2,8 +2,8 @@
  * @Description: 
  * @Author: Super_Javan
  * @Date: 2022-12-03 14:19:21
- * @LastEditTime: 2022-12-03 17:16:08
- * @LastEditors: Super_Javan
+ * @LastEditTime: 2022-12-12 17:19:43
+ * @LastEditors: super_javan 296652579@qq.com
  */
 import { EventMgr } from "../ScriptCore/BaseManager/EventMgr";
 import { ResMgr, ResType } from "../ScriptCore/BaseManager/ResMgr";
@@ -65,7 +65,6 @@ export class FBGameLogic extends BaseLogic{
 
     //加载资源完成
     protected onLoadResourceComplete(err: any) {
-        console.log("打开游戏战斗界面");
         EventMgr.getInstance().dispatchEvent(FBGameEventName.GAME_LOAD_COMPLETE);
         UIMgr.getInstance().clearWaiting();
         FBGameUIMgr.getInstance().showFBGame();

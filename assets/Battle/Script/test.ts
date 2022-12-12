@@ -17,9 +17,6 @@ export default class test extends cc.Component{
         let spine = this.spineNode.getComponent(sp.Skeleton);
         // spine.defaultSkin = 'gun1';
         spine.setAnimation(0,'idle',true);
-
-        this.scheduleOnce(function(){
-            spine.setSkin('gun1')
-        },1)
+        spine.setSkin('enemy2');
     }
 }

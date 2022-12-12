@@ -2,7 +2,7 @@
  * @Description: 战斗场景UI脚本
  * @Author: Super_Javan
  * @Date: 2022-11-29 17:52:12
- * @LastEditTime: 2022-12-09 17:44:33
+ * @LastEditTime: 2022-12-12 17:15:28
  * @LastEditors: super_javan 296652579@qq.com
  */
 import { EventMgr } from "../../../ScriptCore/BaseManager/EventMgr";
@@ -91,7 +91,6 @@ export class UIBattleScene extends UIScreen{
 
     startGameLogic(startGameVo:StartGameVO){
         this.cards = startGameVo.cards;
-        console.log('开始时cards: ' + this.cards);
         this._locked = startGameVo.chair != this._meChair;
         for (let index = 0; index < this.btnCards.length; index++) {
             let clickEventHandler = new cc.Component.EventHandler();
@@ -134,7 +133,7 @@ export class UIBattleScene extends UIScreen{
      * @param openResultVO
      */
     openResultLogic = (openResultVO: OpenCardVO) => {
-        console.log('开牌时cards: ' + this.cards)
+        // console.log('开牌时cards: ' + this.cards)
         console.log(openResultVO);
         this.cards[openResultVO.index] = openResultVO.card;
         this.clearSelectStyle();
@@ -151,17 +150,13 @@ export class UIBattleScene extends UIScreen{
         let cardTemp = this.getCardItemTemp(index);
         
         await TweenUtil.flip(cardTemp, 1, () => {
-            // let imgName = FBGameConfig._iconMapping[card]
-            // const path = `Richblessed/texture/images/Icon_NoCard`;
-            // let sp = ResMgr.getInstance().getSpriteFrameByPath(path);
-            // cardTemp.getComponent(cc.Sprite).spriteFrame = sp;
-
             let spinePrefab = ResMgr.getInstance().getPrefabByPath('Battle/Prefabs/SpinePrefab');
             let pb = cc.instantiate(spinePrefab);
             cardTemp.addChild(pb);
 
             let comp = pb.getComponent(UISpineCard);
             comp.updateScaleByIndex(index);
+            comp.refreshSpineByCard(card);
         });
     }
     getCardItemTemp(index:any){

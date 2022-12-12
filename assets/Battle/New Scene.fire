@@ -20,7 +20,7 @@
         "__id__": 8
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -320,8 +320,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 176.79,
-      "height": 216.24
+      "width": 257.89,
+      "height": 226.74
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -371,11 +371,11 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "gun0",
-    "defaultAnimation": "",
+    "defaultSkin": "default",
+    "defaultAnimation": "idle",
     "_preCacheMode": 0,
     "_cacheMode": 0,
-    "loop": false,
+    "loop": true,
     "premultipliedAlpha": false,
     "timeScale": 1,
     "_accTime": 0,
@@ -383,13 +383,13 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "",
+    "_animationName": "idle",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "81421095-12e6-41a1-ba71-df80723f0d54"
+      "__uuid__": "81da5a88-84f6-4384-a6a8-3dfaf5ca0c7a"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,

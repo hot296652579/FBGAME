@@ -2,8 +2,8 @@
  * @Description: 资源加载管理器
  * @Author: Super_Javan
  * @Date: 2022-11-29 11:39:55
- * @LastEditTime: 2022-11-29 21:45:53
- * @LastEditors: Super_Javan
+ * @LastEditTime: 2022-12-12 16:44:29
+ * @LastEditors: super_javan 296652579@qq.com
  */
 
 
@@ -119,6 +119,11 @@ export class ResMgr{
                 setTimeout(() => {
                     // this.preloadBundleParticleAsset(key);
                 }, 0);
+            }else if(map.get(key) == ResType.ResType_Spine &&
+                resType!.has(ResType.ResType_Spine) &&
+                resType!.get(ResType.ResType_Spine)
+            ){
+                
             }
         }
         setTimeout(() => {
@@ -165,6 +170,8 @@ export class ResMgr{
     private loadSpriteAtlasWithBundleKey: Map<string, Map<string, cc.SpriteAtlas>> = new Map<string, Map<string, cc.SpriteAtlas>>();
     //音频资源
     private loadAudioClipWithBundleKey: Map<string, Map<string, cc.AudioClip>> = new Map<string, Map<string, cc.AudioClip>>();
+    //spine动画资源
+    private loadSpineWithBundleKey:Map<string,Map<string,sp.SkeletonData>> = new Map<string,Map<string,sp.SkeletonData>>();
     private loadProgress :{[key:string]:number} = cc.js.createMap();
     /**
      * @description: 预加载bundle对应的 prefabs
@@ -461,6 +468,61 @@ export class ResMgr{
             //窗体被销毁减少引用计数
             if (this.loadPrefabWithBundleKey.get(data.bundle)!.get(formName)!.refCount > 1) {
                 this.loadPrefabWithBundleKey.get(data.bundle)!.get(formName)!.decRef();
+            }
+        }
+    }
+
+    /**
+     * @description: 用时候加载spine骨骼
+     * @return {*}
+     */    
+    public lazyLoadySpine(path:string):Promise<sp.SkeletonData | null>{
+        return new Promise<sp.SkeletonData | null>((resolve,reject) => {
+            let data = this.splitFormName(path);
+            let bundleName = data.bundle;
+            let fileName = data.prefabName;
+            //缓存又直接拿出来用
+            if(this.loadSpineWithBundleKey.has(bundleName) && this.loadSpineWithBundleKey.get(bundleName)!.has(path)){
+                this.loadSpineWithBundleKey.get(bundleName)!.get(path)!.addRef();
+                let spine = this.loadSpineWithBundleKey.get(bundleName)!.get(path)!;
+                resolve(spine);
+                return;
+            }
+
+            let bundle = cc.assetManager.getBundle(bundleName);
+            if(bundle == null){
+                console.log('加载spine动画的ab包是空的!')
+                resolve(null);
+            }else{
+                bundle.load<sp.SkeletonData>(fileName,sp.SkeletonData,(err,spine:sp.SkeletonData) => {
+                    if(err != null){
+                        console.log(err);
+                        resolve(null);
+                    }else{
+                        if(!this.loadSpineWithBundleKey.get(bundleName)){
+                            this.loadSpineWithBundleKey.set(bundleName,new Map<string,sp.SkeletonData>());
+                        }
+
+                        this.loadSpineWithBundleKey.get(bundleName)!.set(path,spine);
+                        this.loadSpineWithBundleKey.get(bundleName)!.get(path)!.addRef(); //加一次资源引用
+                        resolve(spine);
+                    }
+                })
+            }
+        })
+    }
+
+    /**
+     * @description: 销毁spine 
+     * @param {string} path
+     * @return {*}
+     */    
+    public destorySpineByPath(path: string): void {
+        let data = this.splitFormName(path);
+        let bundleName = data.bundle;
+        if (this.loadSpineWithBundleKey.has(bundleName) && this.loadSpineWithBundleKey.get(bundleName)!.has(path)) {
+            if (this.loadSpineWithBundleKey.get(bundleName)!.get(path)!.refCount > 1) {
+                this.loadSpineWithBundleKey.get(bundleName)!.get(path)!.decRef();
             }
         }
     }
