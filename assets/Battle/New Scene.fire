@@ -313,15 +313,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 88,
+      "g": 74,
+      "b": 252,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 257.89,
-      "height": 226.74
+      "width": 0,
+      "height": 0
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -389,7 +389,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "81da5a88-84f6-4384-a6a8-3dfaf5ca0c7a"
+      "__uuid__": "b70f066b-892c-48c5-af65-09c75639cb31"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,

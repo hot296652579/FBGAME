@@ -1,5 +1,7 @@
 import Config from "./config/Config";
 import ConfirmColorDTO from "./dto/ConfirmColorDTO";
+import MoveCardDTO from "./dto/MoveCardDTO";
+import MoveResultDTO from "./dto/MoveResultDTO";
 import OpenCardDTO from "./dto/OpenCardDTO";
 import SitDownDTO from "./dto/SitDownDTO";
 import StartGameDTO from "./dto/StartGameDTO";
@@ -10,7 +12,7 @@ import Player from "./Player";
  * @Author: super_javan 296652579@qq.com
  * @Date: 2022-12-09 11:37:14
  * @LastEditors: super_javan 296652579@qq.com
- * @LastEditTime: 2022-12-12 17:09:25
+ * @LastEditTime: 2022-12-13 15:56:58
  * @FilePath: \FBGAME\assets\Battle\Script\games\FBGameEngine.ts
  * @Description: FBGame游戏引擎
  */
@@ -201,4 +203,118 @@ export default class FBGameEngine{
             this.players[key].openResult(new OpenCardDTO(chair, index, card));
       }
    }
+
+   /**
+    * 是否可以移动 范围在一格
+    * @param from  当前
+    * @param to    目标
+    * @param cards 牌
+    */
+    public canMove(from: number, to: number, cards: number[]): boolean {
+        let iRow = Math.floor(from / 4);
+        let iCol = from % 4;
+        let jRow = Math.floor(to / 4);
+        let jCol = to % 4;
+        if (cards[from] == FBGameEngine.DARK_CARD
+            || cards[to] == FBGameEngine.DARK_CARD
+            || (cards[from] >> 4) == (cards[to] >> 4)) {
+            return false;
+        }
+        return (iRow == jRow && Math.abs(iCol - jCol) == 1) || (iCol == jCol && Math.abs(iRow - jRow) == 1);
+    }
+
+   /**
+    * 移动牌
+    * @param moveCardDTO
+    */
+    move(moveCardDTO: MoveCardDTO) {
+        console.log("MoveCard:" + JSON.stringify(moveCardDTO));
+        let fromIndex = moveCardDTO.fromIndex;
+        let toIndex = moveCardDTO.toIndex;
+        let fromCard = this.currCards[fromIndex];   // 当前位置的牌
+        let toCard = this.currCards[toIndex];   // 下一个位置的牌
+        let fromV = (fromCard & 0x0F);
+        let nextV = (toCard & 0x0F);
+        let fromC = fromCard >> 4;
+        let toC = toCard >> 4;
+        if (fromC > 1 || toC == (FBGameEngine.DARK_CARD >> 4)) {  // 当前位置不是正常的牌，或者下一个位置是未翻开的牌
+            console.log("异常操作");
+            return;
+        }
+        this.currCards[fromIndex] = FBGameEngine.NONE_CARD;           // 当前位置变成空
+        if (toC == (FBGameEngine.NONE_CARD >> 4)) {                   // 下个位置是空位
+            this.currCards[toIndex] = fromCard;
+        } else { // 非空未知
+            if (fromV > nextV) {
+                if (fromV == 7 && nextV == 0) { // 大象 和 老鼠
+                    this.currCards[toIndex] = toCard;
+                } else {
+                    this.currCards[toIndex] = fromCard;
+                }
+            }
+            if (fromV == nextV) {
+                this.currCards[toIndex] = FBGameEngine.NONE_CARD;
+            }
+            if (fromV < nextV) {
+                if (fromV == 0 && nextV == 7) { // 老鼠 和 大象
+                    this.currCards[toIndex] = fromCard;
+                } else {
+                    this.currCards[toIndex] = toCard;
+                }
+            }
+        }
+        let result: number;
+        if (this.currCards[toIndex] == FBGameEngine.NONE_CARD) {
+            result = 0;
+        } else if (this.currCards[toIndex] == fromCard) {
+            result = 1;
+        } else {
+            result = -1;
+        }
+        this.sendMoveResult(moveCardDTO.chair, fromIndex, this.currCards[fromIndex], toIndex, this.currCards[toIndex], result);
+        if (this.checkWin() != -1) {
+            this.sendEndGame();
+        } else {
+            this.sendOperationNotify();
+        }
+    }
+
+   /**
+     * 发送移动结果
+     * @param chair
+     * @param fromIndex
+     * @param fromCard
+     * @param toIndex
+     * @param toCard
+     * @param result
+     */
+    private sendMoveResult(chair: number, fromIndex: number, fromCard: number, toIndex: number, toCard: number, result: number) {
+        for (let key in this.players) {
+            this.players[key].moveResult(new MoveResultDTO(chair, fromIndex, fromCard, toIndex, toCard, result));
+        }
+    }
+
+    private checkWin(){
+      return 1;
+    }
+
+    private sendEndGame(){
+
+    }
+
+      /**
+     * 发送玩家操作通知
+     */
+    private sendOperationNotify() {
+        this.currChair = this.nextChair();  // 获取下一个操作的椅子
+        for (let key in this.players) {
+            
+        }
+    }
+   /**
+     * 获取下一个操作的玩家
+     */
+    private nextChair(): number {
+        return (this.currChair + 1) % FBGameEngine.MAX_CHAIR;
+    }
 }

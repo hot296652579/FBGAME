@@ -2,11 +2,12 @@
  * @Author: super_javan 296652579@qq.com
  * @Date: 2022-12-09 11:32:09
  * @LastEditors: super_javan 296652579@qq.com
- * @LastEditTime: 2022-12-09 15:58:51
+ * @LastEditTime: 2022-12-13 15:48:06
  * @FilePath: \FBGAME\assets\Battle\Script\games\Player.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import ConfirmColorDTO from "./dto/ConfirmColorDTO";
+import MoveResultDTO from "./dto/MoveResultDTO";
 import OpenCardDTO from "./dto/OpenCardDTO";
 import SitDownDTO from "./dto/SitDownDTO";
 import StartGameDTO from "./dto/StartGameDTO";
@@ -67,8 +68,19 @@ export default abstract class Player{
         this.onOpenResult(openResultDTO);
     }
 
+    /**
+     * 移动结果
+     * @param moveResultDTO
+     */
+    moveResult(moveResultDTO: MoveResultDTO) {
+        console.log("MoveResult:" + JSON.stringify(moveResultDTO));
+        this.onMoveResult(moveResultDTO);
+    }
+
+
     protected abstract onSitDown(sitDownDTO: SitDownDTO);
     protected abstract onStartGame(startGameDTO: StartGameDTO);
     protected abstract onConfirmColor(confirmColorDTO: ConfirmColorDTO);
     protected abstract onOpenResult(openCardDTO: OpenCardDTO);
+    protected abstract onMoveResult(moveResultDTO:MoveResultDTO);
 }

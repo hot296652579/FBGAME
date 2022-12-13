@@ -5003,16 +5003,16 @@
       "__uuid__": "ff05c988-02b3-42f9-b282-8615dfa84ef5"
     },
     "_N$pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "ff05c988-02b3-42f9-b282-8615dfa84ef5"
     },
     "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
+      "__uuid__": "ff05c988-02b3-42f9-b282-8615dfa84ef5"
     },
     "_N$hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "ff05c988-02b3-42f9-b282-8615dfa84ef5"
     },
     "hoverSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "ff05c988-02b3-42f9-b282-8615dfa84ef5"
     },
     "_N$disabledSprite": {
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
@@ -5028,7 +5028,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "062bbOgHNJKuI2M3iXIJnGr",
+    "_componentId": "d19baPZQHNBGJqvtCtq371J",
     "handler": "onBtnBackLobby",
     "customEventData": ""
   },

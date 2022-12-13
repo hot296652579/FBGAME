@@ -2,7 +2,7 @@
  * @Description: 战斗场景UI脚本
  * @Author: Super_Javan
  * @Date: 2022-11-29 17:52:12
- * @LastEditTime: 2022-12-12 17:15:28
+ * @LastEditTime: 2022-12-13 18:18:47
  * @LastEditors: super_javan 296652579@qq.com
  */
 import { EventMgr } from "../../../ScriptCore/BaseManager/EventMgr";
@@ -11,6 +11,7 @@ import { LogicEvent } from "../../../ScriptCore/Games/LogicEvent";
 import { UIScreen } from "../../../ScriptCore/UIFrame/UIForm";
 import Config from "./config/Config";
 import FBGameConfig from "./config/FBGameConfig";
+import MoveCardDTO from "./dto/MoveCardDTO";
 import OpenCardDTO from "./dto/OpenCardDTO";
 import EventOnFire from "./eventfire/EventOnFire";
 import FireKit from "./eventfire/FireKit";
@@ -21,6 +22,7 @@ import PlayerManager from "./manager/PlayerManager";
 import UISpineCard from "./UISpineCard";
 import TweenUtil from "./utils/TweenUtil";
 import ConfirmColorVO from "./vo/ConfirmColorVO";
+import MoveResultVO from "./vo/MoveResultVO";
 import OpenCardVO from "./vo/OpenCardVO";
 import SitDownVO from "./vo/SitDownVO";
 import StartGameVO from "./vo/StartGameVO";
@@ -57,6 +59,8 @@ export class UIBattleScene extends UIScreen{
 
     private fromIndex:number;
 
+    private _meColor:number;
+
     start(){}
 
     onLoad(): void {
@@ -79,6 +83,7 @@ export class UIBattleScene extends UIScreen{
         FireKit.use(Config.HUMAN_FIRE).onGroup(FBGameEvent.START_GAME,this.startGameLogic,this);
         FireKit.use(Config.HUMAN_FIRE).onGroup(FBGameEvent.CONFIRM_COLOR,this.confirmColorLogic,this);
         FireKit.use(Config.HUMAN_FIRE).onGroup(FBGameEvent.OPEN_RESULT,this.openResultLogic,this);
+        FireKit.use(Config.HUMAN_FIRE).onGroup(FBGameEvent.MOVE_RESULT,this.moveResultLogic,this);
     }
 
     sitDownLogic(siwDownVo:SitDownVO){
@@ -120,12 +125,35 @@ export class UIBattleScene extends UIScreen{
 
             if(color === FBGameEngine.DARK){
                 this._engine.open(new OpenCardDTO(this._meChair,index,card));
+            }else{
+                if(this.fromIndex == FBGameEngine.INVALID_INDEX){
+                    if(color == this._meColor){
+                        // 选中了自己添加选中状态
+                        this.updateAndSelectStyle(index);
+                        this.fromIndex = index;
+                    }
+                }else{
+                    if(this._engine.canMove(this.fromIndex,index,this.cards)){
+                        this._engine.move(new MoveCardDTO(this._meChair, this.fromIndex, index));
+                        this.fromIndex = FBGameEngine.INVALID_INDEX;
+                        this.clearSelectStyle();    // 清除选中状态
+                    }else{
+                        //选中后 再切换到别的牌
+                        if(color == this._meColor){
+                            this.updateAndSelectStyle(index);
+                            this.fromIndex = index;
+                        }
+                    }
+                }
             }
         }
     }
 
     confirmColorLogic(confirmColorVO: ConfirmColorVO){
-        console.log('确认了颜色 去设置');
+        if(this._meChair == confirmColorVO.chair){
+            this._meColor = confirmColorVO.color;
+            console.log('如果是0表示红色  confirmColorVO.color :' + confirmColorVO.color);
+        }
     }
 
     /**
@@ -150,14 +178,26 @@ export class UIBattleScene extends UIScreen{
         let cardTemp = this.getCardItemTemp(index);
         
         await TweenUtil.flip(cardTemp, 1, () => {
-            let spinePrefab = ResMgr.getInstance().getPrefabByPath('Battle/Prefabs/SpinePrefab');
-            let pb = cc.instantiate(spinePrefab);
-            cardTemp.addChild(pb);
-
-            let comp = pb.getComponent(UISpineCard);
-            comp.updateScaleByIndex(index);
-            comp.refreshSpineByCard(card);
+            this.updateStyle(index,card);
         });
+    }
+    private updateStyle(index,card){
+        let cardTemp = this.getCardItemTemp(index);
+        if(cardTemp.getChildByName('spinePrefab')){
+            let spinePrefab = cardTemp.getChildByName('spinePrefab');
+            spinePrefab.removeFromParent();
+        }
+        let spinePrefab = ResMgr.getInstance().getPrefabByPath('Battle/Prefabs/SpinePrefab');
+        let pb = cc.instantiate(spinePrefab);
+        cardTemp.addChild(pb);
+        pb.name = 'spinePrefab';
+
+        let noCard = cardTemp.getChildByName('NoCard');
+        noCard.active = false;
+
+        let comp = pb.getComponent(UISpineCard);
+        comp.refreshSpineByCard(card);
+        comp.updateScaleByIndex(index,card);
     }
     getCardItemTemp(index:any){
         for (let i = 0; i < this.btnCards.length; i++) {
@@ -179,4 +219,23 @@ export class UIBattleScene extends UIScreen{
         await this.closeSelf();
         EventMgr.getInstance().dispatchEvent(LogicEvent.ENTER_HALL_FROM_GAMES);
     }
+
+    /**
+     *
+     * @param moveResultVO
+     */
+    moveResultLogic = (moveResultVO: MoveResultVO) => {
+        let fromIndex = moveResultVO.fromIndex;
+        let toIndex = moveResultVO.toIndex;
+        let fromCard = moveResultVO.fromCard;
+        let toCard = moveResultVO.toCard;
+        this.cards[fromIndex] = fromCard;
+        this.cards[toIndex] = toCard;
+        this.updateStyle(fromIndex,fromCard);
+        this.updateStyle(toIndex,toCard);
+        if (this.cards[toIndex] != FBGameEngine.NONE_CARD) {
+            this.updateAndSelectStyle(toIndex);
+        }
+        this.fromIndex = FBGameEngine.INVALID_INDEX;
+    };
 }
