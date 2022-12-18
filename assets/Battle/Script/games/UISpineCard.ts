@@ -23,16 +23,25 @@ export default class UISpineCard extends cc.Component{
     }
 
     updateScaleByIndex(index,card){
+        let row = Math.floor(index / 4);
         let col = index % 4;
-        let spine = this.spineNode.getComponent(sp.Skeleton);
         console.log('col ->' + col + ', card ::::: ' + (card & 0x0F));
-        if(col == 0){
-            if((card & 0x0F) > 5){
-                this.spineNode.scaleX = -1;
+
+        if(row == 3 && col == 3){
+            if((card & 0x0F) >= 5){
+                this.spineNode.parent.scaleX = -1;
+            }
+        }else if(row == 3 && col == 0){
+            if((card & 0x0F) < 5){
+                this.spineNode.parent.scaleX = -1;
+            }
+        }else if(col == 0){
+            if((card & 0x0F) >= 5){
+                this.spineNode.parent.scaleX = -1;
             }
         }else if(col == 3){
             if((card & 0x0F) < 5){
-                this.spineNode.scaleX = -1;
+                this.spineNode.parent.scaleX = -1;
             }
         }
     }

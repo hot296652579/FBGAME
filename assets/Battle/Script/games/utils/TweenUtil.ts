@@ -32,6 +32,7 @@
                     _tween().to(time, { skewY: 0 }, { easing: 'quadIn' }),
                 )
                 .call(() => {
+                    node.scale= 1;
                     onComplete && onComplete();
                     res();
                 })
